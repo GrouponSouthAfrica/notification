@@ -1,0 +1,120 @@
+<%= form_for @deal do |f| %>
+ 
+  <% if @deal.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@deal.errors.count, "error") %> prohibited
+        this deal from being saved:
+      </h2>
+      <ul>
+        <% @deal.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :Name %><br>
+    <%= f.text_field :name, :required => true %>
+  </p>
+
+  <p>
+    <%= f.label :Email %><br>
+    <%= f.text_field :email, :required => true %>
+  </p>
+ 
+
+ 
+<p>
+    <%= f.label :Start_Date %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= f.label :Duration %><br>
+    <%= f.date_field :start_date, :required => true %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :duration_day, :size=>"2",placeholder: 0, :maxlength=>"3", value: 0%> <%= f.label :day %> <%= f.text_field :duration_month, :size=>"1",placeholder: 0, :maxlength=>"2", value: 0  %> <%= f.label :Month %> <%= f.text_field :duration_year, :size=>"1",placeholder: 0, :maxlength=>"2", value: 0 %> <%= f.label :Year %>
+      </p>
+<br>
+
+<div class = "portfolio">
+      <p> <%= f.label :Alert_Type, class: 'portfolio-label' %>
+      <div class = "portfolio">
+      <%=f.select(:alert_type, options_for_select([['Anniversary','Anniversary'],['Birthday','Birthday'],['Christmas','Christmas'],['Easter','Easter'],['Halloween','Halloween'], ['Self-defined','Self-defined']]), :include_blank => '', :required => true) %></p>
+      </div>
+      </p>
+      </div>
+        <br>   <br>  
+ <p class="text-muted">Upload HTML Code (For Self-defined Template)</p>
+                   
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                       
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        
+                        <img src="" class="img-responsive" alt="">
+                    </a>
+                                          <p>
+  <br>
+
+    <%= f.submit %>
+  </p>
+                </div>
+
+          
+          
+         
+   
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>HTML  code</h2>
+                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                              <p>   <%= f.text_area :description, :cols => 100, :rows => 30  %></p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+
+
+  
+<% end %>
+   <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/agency.js"></script>
+
+</body>
+
+</html>
